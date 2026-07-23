@@ -1,0 +1,43 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING Spec/Constr Tmpl#
+AMERICAS LLC
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+Graded Spec - BL 185: Sullivan Myers Stretch V3
+Date Modified: 12-Dec-2022
+Sizes: 28-42 UOM: Fractional inch Measurement Status: Approved for Production
+POM # POM Name Criticality Tol (+) Tol (-) 28 29 30 31 [32] 33 34 35 36 38 40
+620 Waistband Height Standard 1/8 1/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8
+192 Waist @ Center of Waistband Critical 1/2 1/2 30 1/2 31 1/2 32 1/2 33 1/2 34 1/2 35 1/2 36 1/2 37 1/2 38 1/2 40 1/2 42 1/2
+198 Hip or Seat Width 4" Above Crotch Point (3 pt.) Critical 1/2 1/2 37 5/8 38 5/8 39 5/8 40 5/8 41 5/8 42 5/8 43 5/8 44 5/8 45 5/8 47 5/8 49 5/8
+420 Thigh @ 1" Below Crotch Critical 3/8 3/8 21 7/8 22 1/2 23 1/8 23 3/4 24 3/8 25 25 5/8 26 1/4 26 7/8 28 1/8 29 3/8
+430J Knee @ 13" Below Crotch- for 30 inseam Critical 1/4 1/4 15 15 1/4 15 1/2 15 3/4 16 16 1/4 16 1/2 16 3/4 17 17 1/2 18
+430J Knee @ 14" Below Crotch- for 32 inseam Critical 1/4 1/4 15 15 1/4 15 1/2 15 3/4 16 16 1/4 16 1/2 16 3/4 17 17 1/2 18
+430J Knee @ 15" Below Crotch- for 34 inseam Critical 1/4 1/4 15 15 1/4 15 1/2 15 3/4 16 16 1/4 16 1/2 16 3/4 17 17 1/2 18
+433J Leg Opening Critical 1/4 1/4 13 13 1/4 13 1/2 13 3/4 14 14 1/4 14 1/2 14 3/4 15 15 1/2 16
+450 Front Rise Height Below Waistband Critical 1/4 1/4 7 7/8 8 1/8 8 3/8 8 5/8 8 7/8 9 1/8 9 3/8 9 5/8 9 7/8 10 3/8 10 7/8
+451 Back Rise Height Below Waistband Critical 1/4 1/4 12 1/4 12 1/2 12 3/4 13 13 1/4 13 1/2 13 3/4 14 14 1/4 14 3/4 15 1/4
+440 Inseam - 30 Critical 1/2 1/2 30 30 30 30 30 30 30 30 30 30 30
+440 Inseam - 32 Critical 1/2 1/2 32 32 32 32 32 32 32 32 32 32 32
+440 Inseam - 34 Critical 1/2 1/2 34 34 34 34 34 34 34 34 34 34 34
+591 Belt Loop Length Standard 1/8 1/8 2 3/4 2 3/4 2 3/4 2 3/4 2 3/4 2 3/4 2 3/4 2 3/4 2 3/4 2 3/4 2 3/4
+590 Belt Loop Width Standard 1/8 1/8 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2
+592J Number of Belt Loops Standard 0 0 5 5 5 5 5 5 5 5 5 7 7
+Front Belt Loop Position from Pocket Edge Standard 1/8 1/8 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2 1/2
+Back Side Beltloop Position from SS Standard 1/8 1/8 7/8 7/8 7/8 7/8 7/8 7/8 7/8 7/8 7/8 1/2 1/2
+461J Fly or J-Stitch Length Standard 1/4 1/4 6 1/2 6 1/2 6 3/4 6 3/4 7 7 7 1/4 7 1/4 7 1/2 7 3/4 8
+580J Zipper Length Critical 1/4 1/4 5 5 5 1/4 5 1/4 5 1/2 5 1/2 5 3/4 5 3/4 6 6 1/4 6 1/2
+460 Fly or J-Stitch Width Standard 1/8 1/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8
+525 Coin Pocket Width @ Top Standard 1/4 1/4 3 3 1/4 3 1/2 3 3/4 3 3/4 3 3/4 3 3/4 4 4 4 4 1/4
+525 Coin Pocket Width @ Bottom Standard 1/4 1/4 2 1/2 2 3/4 3 3 1/4 3 1/4 3 1/4 3 1/4 3 1/2 3 1/2 3 1/2 3 3/4
+526 Coin Pocket Height @ Center Standard 1/4 1/4 3 5/8 3 5/8 3 5/8 3 5/8 3 5/8 3 5/8 3 5/8 3 7/8 3 7/8 3 7/8 4 1/8
+526 Coin Pocket Height @ Side Standard 1/4 1/4 2 7/8 2 7/8 2 7/8 2 7/8 2 7/8 2 7/8 2 7/8 3 1/8 3 1/8 3 1/8 3 3/8
+527 Coin Pocket Below Waistband seam Standard 1/8 1/8 3/4 3/4 3/4 3/4 3/4 3/4 3/4 3/4 3/4 3/4 3/4
+528 Coin Pocket from Side Seam Standard 1/8 1/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8
+522 Front Scoop Below Waistband @ side seam Standard 1/8 1/8 2 5/8 2 5/8 2 5/8 2 5/8 2 5/8 2 5/8 2 5/8 2 5/8 2 5/8 2 5/8 2 5/8
+523 Front Scoop from Side Seam along WB Standard 1/4 1/4 4 1/4 4 1/2 4 3/4 5 5 5 5 5 1/4 5 1/4 5 1/4 5 1/2
+535 Front Pocket Bag Length below WB Standard 1/4 1/4 9 3/4 9 3/4 9 3/4 10 10 10 10 10 1/4 10 1/4 10 1/4 10 1/2
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 28 of 33

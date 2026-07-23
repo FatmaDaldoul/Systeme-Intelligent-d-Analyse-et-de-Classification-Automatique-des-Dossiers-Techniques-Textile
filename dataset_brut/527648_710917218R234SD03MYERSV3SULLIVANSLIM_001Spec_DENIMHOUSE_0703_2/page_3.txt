@@ -1,0 +1,55 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING Spec/Constr Tmpl#
+AMERICAS LLC
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+BOM - 001 : BOM Date Modified: 22-Feb-2023
+Supplier / RM
+Contact Info. / Aprvd
+Material ID/ Description/ COO / Bulk Leadtime Width/ Qty/ Component MYERS V3 - For
+Supp. Art. Name/# / Bulk Order Min Size UOM Location 001 Use Image
+Comments:
+100162097 IDEAL FASTENER CORP 1 ea CF ZIPPER FRONT 560
+5.0 gg Straight Antique Brass ( MELISA HWANG -
+ABC59) 1 Way Closed End mhwang@idealfastener.co
+Metal Semi-auto lock Zipper m
+with IDEAL Antique Brass ( 2122440261
+ABC59) Pull Right Insert COO: Netherlands
+Art.#: IE- ABC59 M59SQ Bulk L/T (days): 45
+RL Material Identifier: IDEAL Bulk Min: 100
+EARTH - STRAIGHT DENIM Purch. UOM: ea
+ZIPPER (ECO)
+Comments:
+100077249 YKK SNAP FASTENERS 15.000 ligne 6 ea NIPPLE RIVETS BLACK OXIDE
+15.000 ligne Nipple Metal OF AMERICA FOR FRONT FINISH
+Burrs/ Rivet with PRL 67 Melissa King POCKETS AND -
+DEBOSSED BLACK OXIDE MELISSAKING@YKKSNAP COIN POCKET,
+FINISH Finish -AMERICA.COM APPLY AFTER
+Art.#: F09-R858-359 2127689776-1106 WASH
+RL Material Identifier: PRL 67 COO: USA
+LOGO Bulk L/T (days): 60
+NIPPLE RIVET CAP ONLY Purch. UOM: thousands
+Comments:
+100023568 YKK SNAP FASTENERS 15.000 ligne 6 ea NIPPLE RIVETS BLACK OXIDE
+15.000 ligne - Metal Burrs/ OF AMERICA UNDERPARTS FINISH
+Rivet with PRL&CO 67 BLACK Melissa King FA9-Q077-359
+OXIDE Finish MELISSAKING@YKKSNAP $0.0335
+Art.#: FA9-Q077-359_IC -AMERICA.COM
+548674 2127689776-1106
+RL Material Identifier: POST COO: USA
+U/PART ONLY Bulk L/T (days): 60
+Purch. UOM: thousands
+Comments:
+100084511 RALPH LAUREN - - 1 ea THREADS - SEE SEE THREAD
+Cotton, Elastane, Metallic, SOURCING AMERICAS THREAD SPECS SPEC PAGE
+Polyester, Silk, Wool - Thread LLC CORPORATE PG - -
+- - -
+Art.#:
+RL Material Identifier:
+THREAD ID
+Comments:
+Product Treatments - Finishes
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 3 of 33

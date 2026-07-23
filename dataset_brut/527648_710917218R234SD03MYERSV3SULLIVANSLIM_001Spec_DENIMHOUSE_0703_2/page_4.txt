@@ -1,0 +1,53 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING Spec/Constr Tmpl#
+AMERICAS LLC
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+BOM - 001 : BOM Date Modified: 22-Feb-2023
+Supplier / RM
+Contact Info. / Aprvd
+Material ID/ Description/ COO / Bulk Leadtime Width/ Qty/ Component MYERS V3 - For
+Supp. Art. Name/# / Bulk Order Min Size UOM Location 001 Use Image
+100013935 FACTORY SUPPLIED PACKAGING ID
+Folding Special FLAT -
+Art.#:
+Comments:
+Labels and Hangtags
+100069920 MEDIKE HONG KONG H 2.125 X W 1 ea BACK PATCH, 1/2" TRUE BLACK
+Patch - Debossed H 2.125 X LIMITED 3.125 in FROM WEARER'S RAGING BULL
+W 3.125 in Label with Man Hui BACK RIGHT BELT - WET
+S176DM0002.AI TOM.OR@MEDIKE.COM LOOP, APPLY TUMBLE
+Art.#: * 3426 8140 AFTER WASH -
+RL Material Identifier: COO: Canada
+LEATHER BACK PATCH Bulk L/T (days): 28
+Purch. UOM: ea
+Comments:
+100170979 AVERY DENNISON HONG H: 0.00 cm 1 ea SWIFT-TACK NATURAL-
+Attachment - Joker KONG BV 0.00 in UNDERNEATH BLACK
+Art.#: 2-372451-003-01 Michael W: 0.00 cm JOKER TICKET - -
+RL Material Identifier: FABRIC COO: Mexico 0.00 in SEE SECONDARY $0.0002
+Performance Denim + Sport Purch. UOM: thousands AUXILIARY JOKER
+Finish LABEL DETAIL
+Recycled poly cotton DENIM SKETCH FOR
+FLASHER PLACEMENT
+REFERENCE
+Comments:
+100202977 TALON INTERNATIONAL H: 0.00 cm 1 ea HANGTAG TAN-BLACK
+Performance Denim Clamshell INC 0.00 in -
+Art.#: Steven Smith W: 0.00 cm
+RL Material Identifier: MYRIAMB@TALONTRIMS. 0.00 in
+Performance Denim Clamshell COM
+Hangtag 8184444100-157
+Comments:
+100143679 AVERY DENNISON HONG 16 x 41 mm 1 ea QR LABEL WHITE -
+Special ID Label HARSH KONG BV BLACK
+WASH QR CODE LABEL Michael -
+Printed 16 x 41 mm COO: China $0.0200
+Art.#: - Bulk L/T (days): 14
+Purch. UOM: thousands
+Comments:
+Packaging
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 4 of 33

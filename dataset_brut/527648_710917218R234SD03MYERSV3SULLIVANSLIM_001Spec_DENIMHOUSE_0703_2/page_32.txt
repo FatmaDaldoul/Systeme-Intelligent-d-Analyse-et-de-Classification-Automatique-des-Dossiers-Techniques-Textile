@@ -1,0 +1,43 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING Spec/Constr Tmpl#
+AMERICAS LLC
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+Grade Rules - BL 185: Sullivan Myers Stretch V3
+Date Modified: 12-Dec-2022
+Sizes: 28-42 UOM: Fractional inch Grading Method: Incremental Measurement Status: Approved for Production
+POM # POM Name Tol (+) Tol (-) 28 29 30 31 [32] 33 34 35 36 38 40 42
+620 Waistband Height 1/8 1/8 0 0 0 0 1 5/8 0 0 0 0 0 0 0
+192 Waist @ Center of Waistband 1/2 1/2 -1 -1 -1 -1 34 1/2 1 1 1 1 2 2 2
+198 Hip or Seat Width 4" Above Crotch Point (3 pt.) 1/2 1/2 -1 -1 -1 -1 41 5/8 1 1 1 1 2 2 2
+420 Thigh @ 1" Below Crotch 3/8 3/8 - 5/8 - 5/8 - 5/8 - 5/8 24 3/8 5/8 5/8 5/8 5/8 1 1/4 1 1/4 1 1/4
+430J Knee @ 13" Below Crotch- for 30 inseam 1/4 1/4 - 1/4 - 1/4 - 1/4 - 1/4 16 1/4 1/4 1/4 1/4 1/2 1/2 1/2
+430J Knee @ 14" Below Crotch- for 32 inseam 1/4 1/4 - 1/4 - 1/4 - 1/4 - 1/4 16 1/4 1/4 1/4 1/4 1/2 1/2 1/2
+430J Knee @ 15" Below Crotch- for 34 inseam 1/4 1/4 - 1/4 - 1/4 - 1/4 - 1/4 16 1/4 1/4 1/4 1/4 1/2 1/2 1/2
+433J Leg Opening 1/4 1/4 - 1/4 - 1/4 - 1/4 - 1/4 14 1/4 1/4 1/4 1/4 1/2 1/2 1/2
+450 Front Rise Height Below Waistband 1/4 1/4 - 1/4 - 1/4 - 1/4 - 1/4 8 7/8 1/4 1/4 1/4 1/4 1/2 1/2 1/2
+451 Back Rise Height Below Waistband 1/4 1/4 - 1/4 - 1/4 - 1/4 - 1/4 13 1/4 1/4 1/4 1/4 1/4 1/2 1/2 1/2
+440 Inseam - 30 1/2 1/2 0 0 0 0 30 0 0 0 0 0 0 0
+440 Inseam - 32 1/2 1/2 0 0 0 0 32 0 0 0 0 0 0 0
+440 Inseam - 34 1/2 1/2 0 0 0 0 34 0 0 0 0 0 0 0
+591 Belt Loop Length 1/8 1/8 0 0 0 0 2 3/4 0 0 0 0 0 0 0
+590 Belt Loop Width 1/8 1/8 0 0 0 0 1/2 0 0 0 0 0 0 0
+592J Number of Belt Loops 0 0 0 0 0 0 5 0 0 0 0 2 0 0
+Front Belt Loop Position from Pocket Edge 1/8 1/8 0 0 0 0 1/2 0 0 0 0 0 0 0
+Back Side Beltloop Position from SS 1/8 1/8 0 0 0 0 7/8 0 0 0 0 - 3/8 0 0
+461J Fly or J-Stitch Length 1/4 1/4 0 - 1/4 0 - 1/4 7 0 1/4 0 1/4 1/4 1/4 1/4
+580J Zipper Length 1/4 1/4 0 - 1/4 0 - 1/4 5 1/2 0 1/4 0 1/4 1/4 1/4 1/4
+460 Fly or J-Stitch Width 1/8 1/8 0 0 0 0 1 5/8 0 0 0 0 0 0 0
+525 Coin Pocket Width @ Top 1/4 1/4 - 1/4 - 1/4 - 1/4 0 3 3/4 0 0 1/4 0 0 1/4 0
+525 Coin Pocket Width @ Bottom 1/4 1/4 - 1/4 - 1/4 - 1/4 0 3 1/4 0 0 1/4 0 0 1/4 0
+526 Coin Pocket Height @ Center 1/4 1/4 0 0 0 0 3 5/8 0 0 1/4 0 0 1/4 0
+526 Coin Pocket Height @ Side 1/4 1/4 0 0 0 0 2 7/8 0 0 1/4 0 0 1/4 0
+527 Coin Pocket Below Waistband seam 1/8 1/8 0 0 0 0 3/4 0 0 0 0 0 0 0
+528 Coin Pocket from Side Seam 1/8 1/8 0 0 0 0 5/8 0 0 0 0 0 0 0
+522 Front Scoop Below Waistband @ side seam 1/8 1/8 0 0 0 0 2 5/8 0 0 0 0 0 0 0
+523 Front Scoop from Side Seam along WB 1/4 1/4 - 1/4 - 1/4 - 1/4 0 5 0 0 1/4 0 0 1/4 0
+535 Front Pocket Bag Length below WB 1/4 1/4 0 0 - 1/4 0 10 0 0 1/4 0 0 1/4 0
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 32 of 33

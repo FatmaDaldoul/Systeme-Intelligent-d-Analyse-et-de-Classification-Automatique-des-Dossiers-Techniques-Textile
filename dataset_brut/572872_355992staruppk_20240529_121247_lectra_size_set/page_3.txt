@@ -1,0 +1,5 @@
+Dettagli delle tacche eliminate dall'esportazione
+AAMA: 1
+- Pezzo 355992STARupPKH1
+. Tacca 2 > Impossibile trovare le taglie di origine della tacca 23 24
+2024-05-29 - Rapporto di informazioni di esportazione DXF conforme alla norma AAMA 3

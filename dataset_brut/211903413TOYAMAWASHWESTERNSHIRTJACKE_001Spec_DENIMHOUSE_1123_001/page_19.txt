@@ -1,0 +1,42 @@
+Summer 2023 - 211903413 TOYAMA WASH WESTERN SHIRT JACKET - OE232T05
+Merch Division W PRL APP SPRTSWR Sourcing Office RALPH LAUREN AMERICAS SA WHOLESALE Spec/Constr Tmpl#
+Merch Fabrication 3X1 RIGID DENIM Factory SAP # 0200017141 Packaging Tmpl # UP-FP
+Concept W 5/1 2023 CONCEPT Factory DENIM HOUSE Label Tmpl #
+Pattern # PW 376 Hang/Fold Tmpl # RHDB
+Pipeline High/Red Risk High Merch Size Offering XXS-XXL
+Board # OE232T05
+Graded Spec - PW 376: Western Shirt Jacket
+Date Modified: 22-Nov-2022
+Sizes: UOM: Fractional inch Measurement Status: Approved for Production
+POM # POM Name Criticality Tol (+) Tol (-) XXS XS [S] M L XL XXL
+100 Center Back Length from Neck Seam Critical 1/2 1/4 29 1/4 29 3/4 30 1/4 30 3/4 31 1/4 31 3/4 32 1/4
+101 Front Length from HPS seam Critical 1/2 1/4 27 1/2 28 28 1/2 29 29 1/2 30 30 1/2
+130 Shoulder Width Critical 3/8 3/8 16 1/2 17 17 1/2 18 18 3/4 19 1/2 20 1/4
+141 Forward Shoulder Seam from Natural HPS Standard 1/8 1/8 1 1/2 1 1/2 1 1/2 1 1/2 1 1/2 1 1/2 1 1/2
+134 Across Back at Yoke point Standard 3/8 3/8 15 3/4 16 1/4 16 3/4 17 1/4 18 18 3/4 19 1/2
+137 Across Front 5" Below HPS Seam Standard 3/8 3/8 14 1/2 15 15 1/2 16 16 3/4 17 1/2 18 1/4
+160 Chest 1" Below Armhole Critical 1/2 1/2 38 40 42 44 47 50 53
+191 Waist Width 16 3/4" Below Center Back Neck Critical 1/2 1/2 38 1/2 40 1/2 42 1/2 44 1/2 47 1/2 50 1/2 53 1/2
+201 Bottom Opening Width @ Top of Shirt Tail Critical 1/2 1/2 40 42 44 46 49 52 55
+220 Armhole Circumference Along Seam Standard 1/2 1/2 19 20 21 22 23 1/4 24 1/2 25 3/4
+247 Bicep (1)" Below Armhole Standard 1/4 1/4 15 15 3/4 16 1/2 17 1/4 18 1/4 19 1/4 20 1/4
+242 Sleeve Length from Armhole incl cuff Critical 1/4 1/4 23 1/2 24 24 1/2 25 25 1/2 26 26 1/2
+262 Sleeve Placket - Length Standard 1/8 1/8 5 3/4 5 3/4 5 3/4 5 3/4 5 3/4 5 3/4 5 3/4
+263 Sleeve Placket - Width Standard 1/8 1/8 1 1/8 1 1/8 1 1/8 1 1/8 1 1/8 1 1/8 1 1/8
+251 Cuff Opening Standard 1/4 1/4 8 8 1/2 9 9 1/2 10 10 1/2 11
+252 Sleeve Cuff Height Standard 1/8 1/8 3 3/4 3 3/4 3 3/4 3 3/4 3 3/4 3 3/4 3 3/4
+304 Back Neck Drop from Natural HPS Standard 1/8 1/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8
+303 Front Neck Drop from Natural HPS Standard 1/8 1/8 2 3/4 3 3 1/4 3 1/2 3 3/4 4 4 1/4
+306 Neck Circumference (Collar) Straight Pt to Pt Critical 1/4 1/4 15 5/8 16 3/8 17 1/8 17 7/8 18 5/8 19 3/8 20 1/8
+273 Collar Height @ Center Back Standard 1/8 1/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8
+274 Collar Stand Height @ Center Back Standard 1/8 1/8 1 1/2 1 1/2 1 1/2 1 1/2 1 1/2 1 1/2 1 1/2
+272 Collar Point Length Standard 1/8 1/8 2 1/4 2 1/4 2 1/4 2 1/4 2 1/4 2 1/4 2 1/4
+270 Collar Length at Top Edge Standard 1/4 1/4 16 1/2 17 1/4 18 18 3/4 19 1/2 20 1/4 21
+153 Back Yoke Height @ point Standard 1/8 1/8 7 3/8 7 1/2 7 5/8 7 3/4 7 7/8 8 8 1/8
+152 Front Yoke Height from HPS Seam at neck seam Standard 1/8 1/8 2 1/4 2 1/2 2 3/4 3 3 1/4 3 1/2 3 3/4
+152 Front Yoke Height from shoulder Seam to point Standard 1/8 1/8 4 5/8 4 7/8 5 1/8 5 3/8 5 5/8 5 7/8 6 1/8
+152 Front Yoke Height from shoulder seam at armhole Standard 1/8 1/8 3 3 1/4 3 1/2 3 3/4 4 4 1/4 4 1/2
+352 Chest Patch Pocket placement frm HPS seam Standard 1/8 1/8 7 1/2 7 3/4 8 8 1/4 8 1/2 8 3/4 9
+350 Chest Patch Pocket Placement from Center Front Standard 1/8 1/8 1 3/4 2 2 1/4 2 1/2 2 3/4 3 3 1/4
+506 Chest Pocket Height @ Center - Including Flap Standard 1/8 1/8 6 7/8 6 7/8 7 3/8 7 3/8 7 3/8 7 7/8 7 7/8
+Generated: 23-Nov-2022 03:31 AM EST Confidential Property of Ralph Lauren Corporation Page 19 of 22

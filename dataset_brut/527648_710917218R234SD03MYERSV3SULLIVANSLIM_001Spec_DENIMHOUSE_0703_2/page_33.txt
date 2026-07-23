@@ -1,0 +1,26 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING Spec/Constr Tmpl#
+AMERICAS LLC
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+Grade Rules - BL 185: Sullivan Myers Stretch V3
+Date Modified: 12-Dec-2022
+Sizes: 28-42 UOM: Fractional inch Grading Method: Incremental Measurement Status: Approved for Production
+POM # POM Name Tol (+) Tol (-) 28 29 30 31 [32] 33 34 35 36 38 40 42
+536 Front Pocket Bag Width @ Widest Part 1/4 1/4 - 1/4 - 1/4 - 1/4 0 6 3/4 0 0 1/4 0 0 1/4 0
+156 Yoke Height @ Center Back 1/8 1/8 0 0 0 0 2 1/2 0 0 0 0 0 0 0
+157 Yoke Height @ Side Seam 1/8 1/8 0 0 0 0 5/8 0 0 0 0 0 0 0
+502 Back Patch Pocket Width @ Top - Set on Pant 1/8 1/8 0 - 1/4 0 0 6 1/2 0 1/4 0 0 1/2 0 0
+502 Back Patch Pocket Width @ Bottom 1/8 1/8 0 - 1/4 0 0 5 3/8 0 1/4 0 0 1/2 0 0
+503 Back Patch Pocket Height @ Center 1/8 1/8 0 - 1/4 0 0 6 1/2 0 1/4 0 0 1/2 0 0
+503 Back Patch Pocket Height @ Side 1/8 1/8 0 - 1/4 0 0 5 5/8 0 1/4 0 0 1/2 0 0
+507 Deco Stitch (steer) Position Below Pocket Top Edge 1/8 1/8 0 - 1/8 0 0 3 1/8 0 1/8 0 0 1/4 0 0
+529 Back Patch Pocket from Side Seam 1/8 1/8 0 0 0 0 1 3/8 0 0 0 0 0 0 0
+532 Back Patch Pocket Below Yoke Seam Near Center
+Back 1/8 1/8 0 0 0 0 1 3/8 0 0 0 0 0 0 0
+533 Back Patch Pocket Below Yoke Seam Near Side
+Seam 1/8 1/8 0 0 0 0 1 3/8 0 0 0 0 0 0 0
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 33 of 33

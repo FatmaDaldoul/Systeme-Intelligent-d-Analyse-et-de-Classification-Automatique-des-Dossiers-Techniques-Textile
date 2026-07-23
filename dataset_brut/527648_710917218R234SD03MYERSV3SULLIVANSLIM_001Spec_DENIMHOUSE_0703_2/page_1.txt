@@ -1,0 +1,20 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING AMERICAS LLC Spec/Constr Tmpl#
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+Cover Page
+Target Group NONE Tech Designer Mallari, Charles Spec Status Approved for Production
+Product Developer lua,evelyn Test Protocol D001, GCAF001, GCFA002 Spec Comments
+Test Protocol Rmks
+Colorways:
+MYERS V3 - 001
+Product Comments:
+Ralph Lauren Corporation ("RLC") requires that all products, and components thereof, must be tested and be compliant with all applicable laws and regulations as set forth on RLC's Testing Manuals. All RLC vendors
+are responsible to review RLC's standards and protocols identified in the Testing Manuals, and to ensure that all products, and components thereof, are tested and compliant with RLC standards.
+All materials created by you or to which you contribute using this design, in whole or in part, belong exclusively to RLC. All cut and sew patterns, markers, models, designs, derivative works or other materials created by
+you in connection herewith shall be considered "works made for hire," belonging at inception, to RLC. To the extent that you acquire any rights, you assign all such rights, including all copyright and trademark interests
+herein, to RLC.
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 1 of 33

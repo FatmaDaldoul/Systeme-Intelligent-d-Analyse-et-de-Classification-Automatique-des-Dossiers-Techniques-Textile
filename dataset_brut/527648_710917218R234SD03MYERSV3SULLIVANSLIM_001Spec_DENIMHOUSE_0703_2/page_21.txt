@@ -1,0 +1,43 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING Spec/Constr Tmpl#
+AMERICAS LLC
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+Sample Evaluation - BL 185: Sullivan Myers Stretch V3 2023 Fall - 2nd - Physical - Fit Date Modified: 12-Dec-2022
+Sample Status Fit Approved with Sample Received Date 08-Dec-2022 Tech Designer Mallari, Charles Sample Size 32
+Corrections
+Proceed To Production Sample Due Date 07-Dec-2022 Vendor Measurer UOM Fractional inch
+Sample Rejected Reason Sample Color
+POM # POM Name Tol (+) Tol (-) Req Vendor Delta Samp Delta Rvsd POM Comments
+Meas Meas Meas Meas
+620 Waistband Height 1/8 1/8 1 5/8 1 5/8 0
+192 Waist @ Center of Waistband 1/2 1/2 34 1/2 35 1/2
+198 Hip or Seat Width 4" Above Crotch Point (3 pt.) 1/2 1/2 41 5/8 42 3/8
+420 Thigh @ 1" Below Crotch 3/8 3/8 24 3/8 24 3/4 3/8
+430J Knee @ 13" Below Crotch- for 30 inseam 1/4 1/4 16 0
+430J Knee @ 14" Below Crotch- for 32 inseam 1/4 1/4 16 15 7/8 - 1/8
+430J Knee @ 15" Below Crotch- for 34 inseam 1/4 1/4 16 0
+433J Leg Opening 1/4 1/4 14 13 3/4 - 1/4
+450 Front Rise Height Below Waistband 1/4 1/4 8 7/8 9 1/8
+451 Back Rise Height Below Waistband 1/4 1/4 13 1/4 13 1/8 - 1/8
+440 Inseam - 30 1/2 1/2 30 0
+440 Inseam - 32 1/2 1/2 32 32 1/4 1/4
+440 Inseam - 34 1/2 1/2 34 0
+591 Belt Loop Length 1/8 1/8 2 3/4 2 1/2 - 1/4 go back to spec
+590 Belt Loop Width 1/8 1/8 1/2 7/16 - 1/16
+592J Number of Belt Loops 0 0 5 5 0
+Front Belt Loop Position from Pocket Edge 1/8 1/8 1/2 5/8 1/8
+Back Side Beltloop Position from SS 1/8 1/8 7/8 1 1/8 1/4 go back to spec
+461J Fly or J-Stitch Length 1/4 1/4 7 6 7/8 - 1/8
+580J Zipper Length 1/4 1/4 5 1/2 5 1/2 0
+460 Fly or J-Stitch Width 1/8 1/8 1 5/8 1 7/8 1/4 go back to spec
+525 Coin Pocket Width @ Top 1/4 1/4 3 3/4 4 1/4
+525 Coin Pocket Width @ Bottom 1/4 1/4 3 1/4 3 1/2 1/4
+526 Coin Pocket Height @ Center 1/4 1/4 3 5/8 3 1/2 - 1/8
+526 Coin Pocket Height @ Side 1/4 1/4 2 7/8 2 3/4 - 1/8
+527 Coin Pocket Below Waistband seam 1/8 1/8 3/4 5/8 - 1/8
+528 Coin Pocket from Side Seam 1/8 1/8 5/8 5/8 0
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 21 of 33

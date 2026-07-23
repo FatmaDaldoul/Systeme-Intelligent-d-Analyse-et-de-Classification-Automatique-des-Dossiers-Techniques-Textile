@@ -1,0 +1,26 @@
+Pre-Fall 2024 - 710917218 R234SD03 MYERS V3 SULLIVAN SLIM
+Merch Division M PRL APP SPRTSWR Sourcing Office IV1130 - RALPH LAUREN SOURCING Spec/Constr Tmpl#
+AMERICAS LLC
+Merch Fabrication PERFORMANCE DENIM Factory SAP # 0200017141 Packaging Tmpl # UD-FP
+Concept M ANNUAL CORE 4/16 Factory DENIM HOUSE Label Tmpl # UD09
+Pattern # Hang/Fold Tmpl # FFT
+Pipeline High/Red Risk Medium Merch Size Offering 28-42 F2
+Board # R243SD03
+Graded Spec - BL 185: Sullivan Myers Stretch V3
+Date Modified: 12-Dec-2022
+Sizes: 28-42 UOM: Fractional inch Measurement Status: Approved for Production
+POM # POM Name Criticality Tol (+) Tol (-) 28 29 30 31 [32] 33 34 35 36 38 40
+536 Front Pocket Bag Width @ Widest Part Standard 1/4 1/4 6 6 1/4 6 1/2 6 3/4 6 3/4 6 3/4 6 3/4 7 7 7 7 1/4
+156 Yoke Height @ Center Back Standard 1/8 1/8 2 1/2 2 1/2 2 1/2 2 1/2 2 1/2 2 1/2 2 1/2 2 1/2 2 1/2 2 1/2 2 1/2
+157 Yoke Height @ Side Seam Standard 1/8 1/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8 5/8
+502 Back Patch Pocket Width @ Top - Set on Pant Standard 1/8 1/8 6 1/4 6 1/4 6 1/2 6 1/2 6 1/2 6 1/2 6 3/4 6 3/4 6 3/4 7 1/4 7 1/4
+502 Back Patch Pocket Width @ Bottom Standard 1/8 1/8 5 1/8 5 1/8 5 3/8 5 3/8 5 3/8 5 3/8 5 5/8 5 5/8 5 5/8 6 1/8 6 1/8
+503 Back Patch Pocket Height @ Center Standard 1/8 1/8 6 1/4 6 1/4 6 1/2 6 1/2 6 1/2 6 1/2 6 3/4 6 3/4 6 3/4 7 1/4 7 1/4
+503 Back Patch Pocket Height @ Side Standard 1/8 1/8 5 3/8 5 3/8 5 5/8 5 5/8 5 5/8 5 5/8 5 7/8 5 7/8 5 7/8 6 3/8 6 3/8
+507 Deco Stitch (steer) Position Below Pocket Top Edge Standard 1/8 1/8 3 3 3 1/8 3 1/8 3 1/8 3 1/8 3 1/4 3 1/4 3 1/4 3 1/2 3 1/2
+529 Back Patch Pocket from Side Seam Standard 1/8 1/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8
+532 Back Patch Pocket Below Yoke Seam Near Center
+Back Standard 1/8 1/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8
+533 Back Patch Pocket Below Yoke Seam Near Side
+Seam Standard 1/8 1/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8 1 3/8
+Generated: 03-Jul-2023 03:48 AM EDT Confidential Property of Ralph Lauren Corporation Page 29 of 33

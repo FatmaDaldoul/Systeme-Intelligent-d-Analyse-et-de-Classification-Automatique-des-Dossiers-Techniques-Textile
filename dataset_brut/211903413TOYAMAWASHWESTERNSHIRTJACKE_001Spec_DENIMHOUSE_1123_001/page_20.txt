@@ -1,0 +1,41 @@
+Summer 2023 - 211903413 TOYAMA WASH WESTERN SHIRT JACKET - OE232T05
+Merch Division W PRL APP SPRTSWR Sourcing Office RALPH LAUREN AMERICAS SA WHOLESALE Spec/Constr Tmpl#
+Merch Fabrication 3X1 RIGID DENIM Factory SAP # 0200017141 Packaging Tmpl # UP-FP
+Concept W 5/1 2023 CONCEPT Factory DENIM HOUSE Label Tmpl #
+Pattern # PW 376 Hang/Fold Tmpl # RHDB
+Pipeline High/Red Risk High Merch Size Offering XXS-XXL
+Board # OE232T05
+Graded Spec - PW 376: Western Shirt Jacket
+Date Modified: 22-Nov-2022
+Sizes: UOM: Fractional inch Measurement Status: Approved for Production
+POM # POM Name Criticality Tol (+) Tol (-) XXS XS [S] M L XL XXL
+506 Chest Pocket Height @ Sides- Including Flap Standard 1/8 1/8 5 5/8 5 5/8 6 1/8 6 1/8 6 1/8 6 5/8 6 5/8
+502 Chest Patch Pocket Width @ Top Standard 1/8 1/8 4 5/8 4 5/8 5 1/8 5 1/8 5 1/8 5 5/8 5 5/8
+502 Chest Patch Pocket Width @ Bottom Standard 1/8 1/8 4 1/2 4 1/2 5 5 5 5 1/2 5 1/2
+504 Chest Patch Pocket Flap Width Standard 1/8 1/8 4 7/8 4 7/8 5 3/8 5 3/8 5 3/8 5 7/8 5 7/8
+505 Chest Patch Pocket Flap Height @ Center Standard 1/8 1/8 3 3 3 3 3 3 3
+505 Chest Patch Pocket Flap Height @ Side Standard 1/8 1/8 2 2 2 2 2 2 2
+625 Shirt Tail Height-Front Standard 1/8 1/8 4 3/8 4 3/8 4 3/8 4 3/8 4 3/8 4 3/8 4 3/8
+340 Center Front Placket Width Standard 1/8 1/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8 1 5/8
+321 1st snap Placement from Center Front Neck Standard 1/8 1/8 3 3 3 3 3 3 3
+326 Last snap Placement Above Bottom Edge Standard 1/8 1/8 6 6 6 6 6 6 6
+0 0 0 0 0 0 0 0 0
+DTC
+000 ALL 'DTC' POMS FOR ECOM USE ONLY! Standard 0 0
+DTC
+100 Center Back Length Standard 0 0 -1 - 1/2 0 1/2 1 1 1/2 2
+DTC
+101 Front Length from Highest Point of Shoulder/Neck Standard 0 0 -1 - 1/2 0 1/2 1 1 1/2 2
+DTC
+130 Shoulder Width Standard 0 0 -1 - 1/2 0 1/2 1 1/4 2 2 3/4
+DTC
+160 Chest/Bust Circumference Standard 0 0 -4 -2 0 2 5 8 11
+DTC
+191 Waist Circumference Standard 0 0 -4 -2 0 2 5 8 11
+DTC
+201 Bottom Circumference Standard 0 0 -4 -2 0 2 5 8 11
+DTC
+242 Sleeve Length/Armhole Standard 0 0 -1 - 1/2 0 1/2 1 1 1/2 2
+DTC
+306 Neck Circumference Standard 0 0 -1 1/2 - 3/4 0 3/4 1 1/2 2 1/4 3
+Generated: 23-Nov-2022 03:31 AM EST Confidential Property of Ralph Lauren Corporation Page 20 of 22

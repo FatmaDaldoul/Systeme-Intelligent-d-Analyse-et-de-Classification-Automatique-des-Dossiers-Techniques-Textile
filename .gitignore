@@ -1,0 +1,22 @@
+# Environnement virtuel Python
+venv/
+.venv/
+env/
+
+# Fichiers de cache Python
+__pycache__/
+*.py[cod]
+
+# Configuration VS Code
+.vscode/
+
+# Fichiers temporaires, logs et PDFs/Images d'évaluation
+*.pdf
+*.png
+*.jpg
+resultat_evaluation.txt
+
+# Base de données locale / Variables d'environnement
+*.db
+*.sqlite3
+.env
