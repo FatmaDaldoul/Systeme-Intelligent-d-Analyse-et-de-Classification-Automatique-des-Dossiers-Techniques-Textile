@@ -1,0 +1,55 @@
+Summer 2023 - 211903413 TOYAMA WASH WESTERN SHIRT JACKET - OE232T05
+Merch Division W PRL APP SPRTSWR Sourcing Office RALPH LAUREN AMERICAS SA WHOLESALE Spec/Constr Tmpl#
+Merch Fabrication 3X1 RIGID DENIM Factory SAP # 0200017141 Packaging Tmpl # UP-FP
+Concept W 5/1 2023 CONCEPT Factory DENIM HOUSE Label Tmpl #
+Pattern # PW 376 Hang/Fold Tmpl # RHDB
+Pipeline High/Red Risk High Merch Size Offering XXS-XXL
+Board # OE232T05
+BOM - 001 : BOM Date Modified: 17-Aug-2022
+Supplier / RM
+Contact Info. / TOYAMA Aprvd
+Material ID/ Description/ COO / Bulk Leadtime Width/ Qty/ Component WASH - 001 For
+Supp. Art. Name/# / Bulk Order Min Size UOM Location Approved Use Image
+Comments:
+100073377 KWAN TAT INDUSTRIAL W:1 1/8 x H: 1 3/4 1 ea LOOP LABEL NATURAL-
+Country of Origin/Size, RN# - LTD in UNDER MAIN NAVY-RED
+Global label Woven, Printed Colour Chan LABEL. APPLY -
+W:1 1/8 x H: 1 3/4 in Label SARAH.CHAN@KWANTAT BEFORE WASH $0.1900
+Art.#: SL-PL1079/SL-PL1082 GROUP.COM
+COO: China
+Bulk L/T (days): 55
+Bulk Min: 1000
+Purch. UOM: ea
+Comments:
+100080094 SML HONG KONG W:32 (outer/inner) 1 ea CARE LABEL @ WHITE-BLACK
+Address, CA#, RN#, Size, LIMITED mm WEARER'S RIGHT -
+Care/Content Satin Printed Yaribel Jimenez SS, 2 1/2" ABOVE $0.0350
+W:32 (outer/inner) mm Label ericleung@sml.com BOTTOM HEM
+Art.#: * 26998082
+COO: China
+Bulk L/T (days): 10
+Bulk Min: 1000
+Purch. UOM: thousands
+Comments:
+100151823 AVERY DENNISON HONG H: 9.00 cm 1 ea HANGTAG TAN
+Branded HT w/Crocking KONG BV 3.54 in -
+Concept Hangtag Michael W: 4.00 cm
+Art.#: 100151823 COO: China 1.57 in
+RL Material Identifier: Polo Bulk L/T (days): 15
+Denim Global Hangtag Bulk Min: 50
+w/Crocking Disclaimer Purch. UOM: ea
+Comments:
+100098295 AVERY DENNISON HONG H: 8.99 cm 1 ea SWIFT TACK WHITE-BLACK
+RFID UPC Ticket KONG BV 3.54 in BEHIND HANGTAG -
+Art.#: * Michael W: 3.99 cm $0.0001
+RL Material Identifier: UPC COO: China 1.57 in
+Usa & Canada Bulk L/T (days): 10
+Purch. UOM: thousands
+Comments:
+100143679 AVERY DENNISON HONG 16 x 41 mm 1 ea QR LABEL WHITE -
+Special ID Label HARSH KONG BV BLACK
+WASH QR CODE LABEL Michael -
+Printed 16 x 41 mm COO: China $0.0200
+Art.#: - Bulk L/T (days): 14
+Purch. UOM: thousands
+Generated: 23-Nov-2022 03:31 AM EST Confidential Property of Ralph Lauren Corporation Page 3 of 22

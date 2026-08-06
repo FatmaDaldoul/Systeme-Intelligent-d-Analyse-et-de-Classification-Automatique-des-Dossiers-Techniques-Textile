@@ -5,7 +5,7 @@ import io        # Fournit une mémoire tampon temporaire pour la conversion de 
 import json      # Permet de décoder la réponse JSON structurée reçue de l'IA
 import os        # Permet de vérifier l'existence des fichiers sur le disque
 import re        # Permet le matching par mots-clés avec limites de mot (\b)
-from typing import Optional, Tuple, List  # Utilisé pour typer proprement les retours de fonctions
+from typing import Optional, Tuple, List  # Utilisé pour typer proprement les retours de fonctions 
 import mysql.connector  # Permet de se connecter à la base MySQL pour la mémoire apprise et la file de confirmation
 
 # --- CONFIGURATION DE L'API OLLAMA ---
@@ -48,14 +48,14 @@ def get_db_connection():
 # ============================================================
 def chercher_marque_dans_memoire(nom_dossier: str) -> Optional[str]:
     """
-    Vérifie si le nom du dossier correspond à un motif déjà appris.
+    Vérifie si le nom du dossier correspond à un motif déjà appris.chaque marque deja vu a des motifs appris exp;GAS;denim ...
     Retourne la marque si un motif connu est trouvé dans le nom, sinon None.
     """
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT motif_nom_fichier, marque FROM regles_marque_apprises")
-        regles = cursor.fetchall()
+        regles = cursor.fetchall() #fetchall;"Récupère toutes les lignes."
         cursor.close()
         conn.close()
 
@@ -104,18 +104,6 @@ CLASSIFICATION_OPTIONS = [
     "Autres documents techniques"
 ]
 
-# ============================================================
-# CHANGEMENT #1 : dictionnaire de définitions visuelles par catégorie
-# ------------------------------------------------------------
-# POURQUOI : dans l'ancien code, le prompt vision de classify_by_vision()
-# ne donnait une règle de distinction que pour 3 catégories sur 11
-# (Measurement Sheet / BOM / Autres documents techniques). Pour les 8
-# autres, LLaVA devait deviner sans aucun critère visuel -> c'est la
-# cause principale des confusions observées dans l'évaluation
-# (Technical Sketch <-> Sewing Instructions <-> Measurement Sheet,
-# Labels <-> Technical Sketch <-> Autres documents techniques).
-# On centralise ces définitions ici pour les réutiliser dans le prompt.
-# ============================================================
 CATEGORY_DEFINITIONS = {
     "BOM": "tableau listant tissus/fournitures/composants avec fournisseurs, sans mesures corporelles",
     "Measurement Sheet": "tableau de mesures avec points numérotés (POM) et colonnes de tailles (S,M,L,32,34...)",
@@ -130,23 +118,6 @@ CATEGORY_DEFINITIONS = {
     "Autres documents techniques": "page de garde, rapport logiciel (ex: Lectra), contenu non classifiable",
 }
 
-# --- DICTIONNAIRE DE MOTS-CLES PONDÉRÉ PAR CATEGORIE ---
-# Chaque mot-clé a un poids : 2-3 pour une expression distinctive (peu de faux positifs),
-# 1 ou moins pour un mot générique (peut apparaître dans plusieurs catégories, donc moins fiable seul).
-#
-# ============================================================
-# CHANGEMENT #2 : mots-clés enrichis pour les catégories les plus faibles
-# ------------------------------------------------------------
-# POURQUOI : dans l'évaluation, "Sewing Instructions" n'avait que 6 mots-clés
-# dont 4 à poids 1 seulement. Comme le seuil d'acceptation est
-# best_score >= 2, un seul mot-clé faible ne suffisait presque jamais
-# -> la page tombait presque systématiquement en fallback vision, qui
-# elle-même manquait de guidage (voir CHANGEMENT #1). Résultat observé :
-# 0/2 correctes sur Sewing Instructions. On ajoute des mots-clés plus
-# nombreux et plus distinctifs pour que la classification texte (rapide
-# et fiable) suffise plus souvent, sans avoir besoin de la vision.
-# Idem pour Trims & Accessories et Fabric Information.
-# ============================================================
 KEYWORDS = {
     "Measurement Sheet": {
         "strong": [
@@ -230,19 +201,12 @@ KEYWORDS = {
 }
 COVER_PAGE_EXPLICIT_MARKER = "cover page"
 SOFTWARE_REPORT_MARKERS = ["lectra", "aama", "esportazione", "tacche eliminate"]
-# lorsque le texte contient un de ces mots, le programme sait immédiatement que
-# cette page n'appartient à aucune catégorie métier. Elle sera directement classée comme :
-# "Autres documents techniques". Le programme évite ainsi d'appeler inutilement l'IA.
-
-# cette liste contient toutes les marques que vous traitez habituellement.
 KNOWN_BRANDS = [
     "RALPH LAUREN", "HUGO BOSS", "GUESS", "TOMMY HILFIGER", "CALVIN KLEIN",
     "LEVI'S", "GAP", "NIKE", "ADIDAS", "ZARA", "H&M", "UNIQLO",
     "LACOSTE", "BURBERRY", "GUCCI", "PRADA",
     "GAS", "5TATE OF MIND", "STATE OF MIND",
 ]
-
-
 def classify_by_text(text_content: str, page_number: Optional[int] = None) -> Tuple[Optional[str], float]:
     """
     Classification textuelle par score de mots-clés.
@@ -285,7 +249,18 @@ def classify_by_text(text_content: str, page_number: Optional[int] = None) -> Tu
     if best_score >= 2 and (best_score - second_score) >= 1:
         return best_category, best_score
 
-    if len(text_lower) < 100:
+    # ============================================================
+    # CORRECTIF : le raccourci "texte court -> Autres documents techniques"
+    # ne se déclenche maintenant que si AUCUN mot-clé n'a matché du tout
+    # (best_score == 0). Avant, il s'appliquait même quand un mot-clé avait
+    # donné un signal faible (ex: "barcode" pour une page Labels très courte,
+    # ce qui est normal pour une étiquette) -- ce signal était écrasé et la
+    # page forcée vers "Autres" sans même laisser la vision (qui, elle, VOIT
+    # le rectangle d'étiquette) donner son avis. C'est probablement la cause
+    # principale de la confusion Labels <-> Autres documents techniques
+    # observée dans l'évaluation précédente. À remesurer pour confirmer.
+    # ============================================================
+    if best_score == 0 and len(text_lower) < 100:
         return "Autres documents techniques", 97
 
     return None, 0
@@ -329,20 +304,6 @@ def encode_image_to_base64(image_path: str) -> Optional[str]:
         print(f"Erreur lors de l'encodage de l'image : {e}")
         return None
 
-
-# ============================================================
-# CHANGEMENT #8 (suite) : fonctions de parsing "tolérantes"
-# ------------------------------------------------------------
-# EXPLICATION SIMPLE : imagine que tu demandes à quelqu'un de remplir une
-# fiche avec une seule case "brand: ...". Parfois il répond correctement.
-# Parfois il écrit la mauvaise étiquette sur la case, ou oublie de fermer
-# sa phrase. Avant, dès que la fiche n'était pas parfaite, on la jetait
-# entièrement à la poubelle (json.loads() plantait -> exception -> valeur
-# par défaut). Maintenant, si la fiche est mal remplie, on cherche quand
-# même le mot qu'on veut dedans avec une recherche de motif (regex),
-# comme si on cherchait "brand" ou "category" au milieu d'une phrase mal
-# ponctuée, plutôt que d'exiger une fiche parfaitement carrée.
-# ============================================================
 def parse_category_response(raw_text: str) -> str:
     """Extrait la catégorie d'une réponse JSON, même si elle est mal formée."""
     try:
@@ -404,20 +365,6 @@ Texte visible sur la page : "{text_content[:500]}"
 
 Réponds uniquement avec ce JSON, rien d'autre :
 {{"category": "..."}}"""
-
-    # ============================================================
-    # CHANGEMENT #7 : nom du modèle corrigé + keep_alive + timeout augmenté
-    # ------------------------------------------------------------
-    # POURQUOI : le payload appelait encore "llava" alors que tu es passé à
-    # BakLLaVA -> Ollama renvoyait une erreur 404 (modèle introuvable dans
-    # l'ID exact attendu). On utilise maintenant "bakllava:latest", le nom
-    # exact tel qu'affiché par `ollama list`.
-    # "keep_alive": "30m" dit à Ollama de garder le modèle chargé en mémoire
-    # pendant 30 minutes après chaque appel, au lieu de le décharger et de
-    # devoir le recharger à zéro à chaque nouvelle page -> beaucoup plus rapide.
-    # Le timeout passe de 300s (5 min) à 600s (10 min) car BakLLaVA est plus
-    # lourd et plus lent que LLaVA, surtout sur les premiers appels.
-    # ============================================================
     payload = {
         "model": "bakllava:latest",
         "prompt": prompt,
@@ -432,16 +379,6 @@ Réponds uniquement avec ce JSON, rien d'autre :
         response = requests.post(OLLAMA_API_URL, json=payload, timeout=600)
         if response.status_code == 200:
             result = response.json()
-            # ============================================================
-            # CHANGEMENT #8 : parsing JSON tolérant aux réponses mal formées
-            # ------------------------------------------------------------
-            # POURQUOI : BakLLaVA respecte moins bien le format JSON strict que
-            # LLaVA (ex: réponse coupée, mauvaise clé). Avant, un json.loads()
-            # qui échouait faisait perdre TOUTE la réponse, même si elle
-            # contenait une info exploitable. On utilise maintenant une
-            # fonction de secours (voir plus bas) qui essaie d'abord le JSON
-            # propre, puis une recherche par motif si le JSON est cassé.
-            # ============================================================
             category = parse_category_response(result.get("response", "{}"))
             return category if category in CLASSIFICATION_OPTIONS else "Autres documents techniques"
         else:
@@ -475,19 +412,7 @@ def extract_brand_by_vision(image_path: str, text_content: str) -> str:
     """
     base64_image = encode_image_to_base64(image_path)
     if not base64_image:
-        return "Inconnu"
-
-    # ============================================================
-    # CHANGEMENT #9 : consigne anti-invention ("anti-hallucination")
-    # ------------------------------------------------------------
-    # EXPLICATION SIMPLE : avant, le modèle se comportait un peu comme
-    # quelqu'un qui répond "Levi's" à la question "quelle marque ?" juste
-    # parce que la page parle de denim -> il devine à partir du SUJET du
-    # document, pas de ce qu'il voit vraiment écrit ou dessiné. On lui
-    # interdit maintenant explicitement de faire ce raisonnement, et on
-    # lui rappelle qu'il a le droit de répondre "je ne sais pas" -- ce
-    # n'est pas un échec, c'est la bonne réponse s'il n'est pas sûr.
-    # ============================================================
+        return "Inconnu"    
     prompt = f"""Trouve le nom de la marque de vêtements propriétaire de ce document.
 
 Marques possibles (si tu reconnais l'une d'elles, réponds EXACTEMENT ce nom) :
@@ -560,28 +485,6 @@ Réponds uniquement avec ce JSON :
 
     return "Inconnu"
 
-
-# ============================================================
-# CHANGEMENT #5 (LE PLUS IMPORTANT) : détection de marque au niveau DOCUMENT,
-# plus au niveau PAGE.
-# ------------------------------------------------------------
-# POURQUOI : c'était la cause racine de la quasi-totalité des 23 erreurs
-# de marque dans l'évaluation. Dans un Tech Pack, le logo de la marque
-# apparaît en général une seule fois, sur la page de garde. En demandant
-# à LLaVA de chercher un logo sur CHAQUE page (y compris des pages de
-# guidelines ou de schémas sans aucun logo), on lui demandait de trouver
-# quelque chose qui n'existe simplement pas sur l'image -> il ne pouvait
-# que répondre INCONNU. La preuve dans les résultats : dès qu'une page 1
-# d'un dossier échouait à trouver la marque, TOUTES les pages suivantes
-# du même dossier échouaient aussi (ex: les 5 pages de 568336_01_COACHJACKET,
-# les 15 pages de 583132_guidelines_denim_ss24).
-#
-# La correction : on traite un dossier de Tech Pack comme une unité.
-# On cherche la marque uniquement sur les premières pages (là où elle a
-# le plus de chances d'être visible), puis on propage ce résultat unique
-# à TOUTES les pages du même dossier, au lieu de relancer une détection
-# par page.
-# ============================================================
 def extract_brand_for_document(pages: List[Tuple[str, str]], nom_dossier: str = "", max_pages_to_check: int = 3) -> str:
     """
     Détecte la marque UNE SEULE FOIS pour tout un dossier de Tech Pack.
@@ -596,15 +499,6 @@ def extract_brand_for_document(pages: List[Tuple[str, str]], nom_dossier: str = 
     (dans ce cas, le document devra être ajouté à la file de confirmation manuelle
     par l'appelant, voir classify_tech_pack_document()).
     """
-    # ============================================================
-    # CHANGEMENT #11 : la mémoire apprise est vérifiée EN PREMIER,
-    # avant même le texte et la vision.
-    # ------------------------------------------------------------
-    # POURQUOI : si ce motif de nom de dossier a déjà été confirmé
-    # manuellement par le passé, pas besoin de refaire tout le travail
-    # de détection (texte, puis vision) -- on gagne du temps et on évite
-    # une nouvelle erreur possible du modèle sur un cas déjà résolu.
-    # ============================================================
     if nom_dossier:
         marque_memorisee = chercher_marque_dans_memoire(nom_dossier)
         if marque_memorisee:
@@ -631,29 +525,37 @@ def extract_brand_for_document(pages: List[Tuple[str, str]], nom_dossier: str = 
     return "INCONNU"
 
 
-def classify_tech_pack_page(image_path: str, text_content: str, page_number: Optional[int] = None) -> str:
+def classify_tech_pack_page(image_path: str, text_content: str, page_number: Optional[int] = None) -> Tuple[str, Optional[float]]:
     """
     Classifie UNE page (catégorie uniquement). La marque n'est plus gérée ici :
     elle doit être calculée une seule fois par dossier via extract_brand_for_document(),
     puis passée/assignée à toutes les pages du dossier par l'appelant.
     Voir classify_tech_pack_document() ci-dessous pour l'usage recommandé.
+
+    Retourne (categorie, score_confiance). score_confiance est le score de
+    mots-clés (float) si la catégorie a été trouvée par le texte, ou None si
+    elle a été trouvée par la vision (BakLLaVA ne renvoie pas de score
+    numérique, juste une catégorie) -- utile pour savoir plus tard, dans
+    l'interface, si une classification est "solide" (score élevé) ou
+    "à surveiller" (score faible ou vision).
     """
     if not os.path.exists(image_path):
         print(f"Erreur : L'image n'existe pas : {image_path}")
-        return "Autres documents techniques"
+        return "Autres documents techniques", None
 
     category, score = classify_by_text(text_content, page_number)
     if category is None:
         print(f"[INFO] Texte ambigu -> fallback vision pour {os.path.basename(image_path)}")
         category = classify_by_vision(image_path, text_content)
+        score = None
     else:
         print(f"[INFO] Classifié par texte : {category} (score={score})")
 
     print(f"[IA Décision] Catégorie : '{category}'")
-    return category
+    return category, score
 
 
-def classify_tech_pack_document(pages: List[Tuple[str, str]], techpack_id: int = 0, nom_dossier: str = "") -> List[Tuple[str, str]]:
+def classify_tech_pack_document(pages: List[Tuple[str, str]], techpack_id: int = 0, nom_dossier: str = "") -> List[Tuple[str, str, Optional[float]]]:
     """
     Point d'entrée recommandé : traite un dossier de Tech Pack complet.
 
@@ -664,30 +566,22 @@ def classify_tech_pack_document(pages: List[Tuple[str, str]], techpack_id: int =
     nom_dossier : nom du dossier, utilisé pour la mémoire apprise et pour identifier
             le document dans l'interface de confirmation manuelle.
 
-    Retourne une liste de (categorie, marque), une entrée par page, dans le
-    même ordre que l'entrée. La marque est identique pour toutes les pages
-    du dossier (calculée une seule fois, voir CHANGEMENT #5). Si la marque
-    est "INCONNU", le document a été automatiquement ajouté à la file de
-    confirmation manuelle (table marque_a_confirmer) -- ce n'est plus une
+    Retourne une liste de (categorie, marque, score_confiance), une entrée par
+    page, dans le même ordre que l'entrée. La marque est identique pour toutes
+    les pages du dossier (calculée une seule fois, voir CHANGEMENT #5). Si la
+    marque est "INCONNU", le document a été automatiquement ajouté à la file
+    de confirmation manuelle (table marque_a_confirmer) -- ce n'est plus une
     erreur silencieuse, c'est une action en attente et visible.
     """
     # Marque calculée UNE SEULE FOIS pour tout le dossier
     brand = extract_brand_for_document(pages, nom_dossier=nom_dossier)
     print(f"[IA Décision] Marque du document (appliquée à {len(pages)} pages) : '{brand}'")
-
-    # ============================================================
-    # CHANGEMENT #12 : si rien n'a permis de détecter la marque,
-    # on n'écrit plus juste "INCONNU" dans la base en silence --
-    # on ajoute le document à la file de confirmation manuelle,
-    # pour qu'un humain tranche via l'interface, comme prévu dans
-    # le flux "1. upload -> 2. détection auto -> 3. confirmation si échec".
-    # ============================================================
     if brand == "INCONNU" and techpack_id:
         ajouter_a_la_file_de_confirmation(techpack_id, nom_dossier)
 
     resultats = []
     for i, (image_path, text_content) in enumerate(pages, start=1):
-        category = classify_tech_pack_page(image_path, text_content, page_number=i)
-        resultats.append((category, brand))
+        category, score = classify_tech_pack_page(image_path, text_content, page_number=i)
+        resultats.append((category, brand, score))
 
     return resultats

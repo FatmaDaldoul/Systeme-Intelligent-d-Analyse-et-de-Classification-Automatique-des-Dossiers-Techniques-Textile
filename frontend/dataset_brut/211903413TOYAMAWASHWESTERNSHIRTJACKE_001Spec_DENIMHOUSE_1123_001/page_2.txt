@@ -1,0 +1,53 @@
+Summer 2023 - 211903413 TOYAMA WASH WESTERN SHIRT JACKET - OE232T05
+Merch Division W PRL APP SPRTSWR Sourcing Office RALPH LAUREN AMERICAS SA WHOLESALE Spec/Constr Tmpl#
+Merch Fabrication 3X1 RIGID DENIM Factory SAP # 0200017141 Packaging Tmpl # UP-FP
+Concept W 5/1 2023 CONCEPT Factory DENIM HOUSE Label Tmpl #
+Pattern # PW 376 Hang/Fold Tmpl # RHDB
+Pipeline High/Red Risk High Merch Size Offering XXS-XXL
+Board # OE232T05
+BOM - 001 : BOM Date Modified: 17-Aug-2022
+Supplier / RM
+Contact Info. / TOYAMA Aprvd
+Material ID/ Description/ COO / Bulk Leadtime Width/ Qty/ Component WASH - 001 For
+Supp. Art. Name/# / Bulk Order Min Size UOM Location Approved Use Image
+Primary Fabric
+100157447 ALROUBAIA TEXTILE CO 154.94 cm BODY FABRIC OPT
+10/1NE + 44D 99% Cotton, FOURTEX 61.00 in 1
+1% Elastane 3X1 LHT PFD BASSAM ARAB
+Art.#: SLOUCHY G STR COO: Egypt
+Bulk Min: 10000
+Purch. UOM: yd
+Comments:
+Trims
+100150383 T & S LION BUTTON 18.000 ligne 18 ea 7 @ CF, 1 @ CREAM
+18.000 ligne Western (Poly (ASIA) CO LTD COLLARSTAND, 1 -
+Center) Polyester Snap Erica Wong @ EACH FRONT $0.0851
+NICKEL FINISH RIM Finish CONCETTA@TSBUTTONS POCKET, 3 @
+Art.#: 400052AQ .COM EACH SLV CUFF, 1
+RL Material Identifier: ROUND 9177902331 @ EA SLV
+W/MTL RIM NO LOGO A7104 COO: Hong Kong PLACKET
+Bulk L/T (days): 35
+Purch. UOM: gross
+Comments:
+100084511 RALPH LAUREN - - THREAD SEE THREAD
+Cotton, Elastane, Metallic, SOURCING AMERICAS SPEC PAGE
+Polyester, Silk, Wool - Thread LLC CORPORATE -
+- - -
+Art.#:
+RL Material Identifier:
+THREAD ID
+Comments:
+TBD EMBROIDERY
+Art.#: ARTWORK
+Comments:
+Labels and Hangtags
+100150621 KWAN TAT INDUSTRIAL H: 42 x W: 60 mm 1 ea MAIN LABEL AT CB NATURAL-
+Main Polo Denim Woven, LTD NECK. APPLY NAVY
+Printed H: 42 x W: 60 mm Colour Chan AFTER WASH, -
+Label SARAH.CHAN@KWANTAT TACK ON 4 $0.2100
+Art.#: 100150621 GROUP.COM CORNERS.
+RL Material Identifier: Polo COO: China
+Ralph Lauren Authentic Denim Bulk L/T (days): 35
+Goods Bulk Min: 1000
+Purch. UOM: ea
+Generated: 23-Nov-2022 03:31 AM EST Confidential Property of Ralph Lauren Corporation Page 2 of 22

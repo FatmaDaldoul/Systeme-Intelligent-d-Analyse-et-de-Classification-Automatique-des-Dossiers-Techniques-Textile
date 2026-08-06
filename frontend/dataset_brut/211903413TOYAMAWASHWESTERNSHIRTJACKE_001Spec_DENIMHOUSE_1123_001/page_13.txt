@@ -1,0 +1,21 @@
+Summer 2023 - 211903413 TOYAMA WASH WESTERN SHIRT JACKET - OE232T05
+Merch Division W PRL APP SPRTSWR Sourcing Office RALPH LAUREN AMERICAS SA WHOLESALE Spec/Constr Tmpl#
+Merch Fabrication 3X1 RIGID DENIM Factory SAP # 0200017141 Packaging Tmpl # UP-FP
+Concept W 5/1 2023 CONCEPT Factory DENIM HOUSE Label Tmpl #
+Pattern # PW 376 Hang/Fold Tmpl # RHDB
+Pipeline High/Red Risk High Merch Size Offering XXS-XXL
+Board # OE232T05
+Sample Evaluation - PW 376: Western Shirt Jacket 2023 Summer - 3rd - Physical - Fit - Sharabati
+Date Modified: 22-Nov-2022
+Slouchy 06
+Sample Status Fit Approved with Sample Received Date 18-Nov-2022 Tech Designer Sample Size S
+Corrections
+Proceed To Production Sample Due Date 27-Oct-2022 Vendor Measurer UOM Fractional inch
+Sample Rejected Reason Sample Color
+POM # POM Name Tol (+) Tol (-) Req Vendor Delta Samp Delta Rvsd POM Comments
+Meas Meas Meas Meas
+DTC
+242 Sleeve Length/Armhole 0 0 0 0 0
+DTC
+306 Neck Circumference 0 0 0 0 0
+Generated: 23-Nov-2022 03:31 AM EST Confidential Property of Ralph Lauren Corporation Page 13 of 22
