@@ -207,39 +207,50 @@ KNOWN_BRANDS = [
     "LACOSTE", "BURBERRY", "GUCCI", "PRADA",
     "GAS", "5TATE OF MIND", "STATE OF MIND",
 ]
-def classify_by_text(text_content: str, page_number: Optional[int] = None) -> Tuple[Optional[str], float]:
+def classify_by_text(text_content: str, page_number: Optional[int] = None) -> Tuple[Optional[str], float, List[str]]:
     """
     Classification textuelle par score de mots-clés.
     page_number est optionnel : s'il est fourni, la règle Cover Page ne se
     déclenche que si le terme est explicitement présent ET que ce n'est pas
     une répétition d'en-tête sur une page > 1 (les templates comme Ralph Lauren
     répètent souvent des champs administratifs sur chaque page).
-    Renvoie (categorie, score) ou (None, 0) si le résultat est ambigu.
+
+    Renvoie (categorie, score, mots_matches) ou (None, 0, []) si le résultat
+    est ambigu. mots_matches est la liste des mots-clés qui ont concrètement
+    été trouvés dans le texte pour la catégorie gagnante -- c'est ce qui
+    permet d'afficher "classé comme X à cause de : mot1, mot2" dans
+    l'interface, plutôt qu'un aperçu de texte brut souvent illisible (voir
+    l'échange sur les pages-tableaux).
     """
     text_lower = re.sub(r'\s+', ' ', text_content.lower()).strip()
 
     if any(marker in text_lower for marker in SOFTWARE_REPORT_MARKERS):
-        return "Autres documents techniques", 98
+        return "Autres documents techniques", 98, ["motif logiciel de rapport"]
 
     if "sample evaluation image" in text_lower:
-        return "Autres documents techniques", 96
+        return "Autres documents techniques", 96, ["\"sample evaluation image\""]
 
     if COVER_PAGE_EXPLICIT_MARKER in text_lower:
         if page_number is None or page_number == 1:
-            return "Autres documents techniques", 99
+            return "Autres documents techniques", 99, ["page de garde explicite"]
 
     scores = {}
+    mots_matches = {}  # { categorie: [mots-clés trouvés] }
     for category, rules in KEYWORDS.items():
         score = 0.0
+        trouves = []
         for kw, poids in rules.get("strong", []):
             if re.search(r'\b' + re.escape(kw) + r'\b', text_lower):
                 score += poids
+                trouves.append(kw)
         scores[category] = score
+        mots_matches[category] = trouves
 
     size_cols_found = sum(1 for pattern in KEYWORDS["Measurement Sheet"]["size_columns"]
                            if re.search(pattern, text_lower))
     if size_cols_found >= 3 and scores["Measurement Sheet"] > 0:
         scores["Measurement Sheet"] += 2
+        mots_matches["Measurement Sheet"].append(f"{size_cols_found} colonnes de tailles détectées")
 
     sorted_scores = sorted(scores.values(), reverse=True)
     best_category = max(scores, key=scores.get)
@@ -247,7 +258,7 @@ def classify_by_text(text_content: str, page_number: Optional[int] = None) -> Tu
     second_score = sorted_scores[1] if len(sorted_scores) > 1 else 0
 
     if best_score >= 2 and (best_score - second_score) >= 1:
-        return best_category, best_score
+        return best_category, best_score, mots_matches[best_category]
 
     # ============================================================
     # CORRECTIF : le raccourci "texte court -> Autres documents techniques"
@@ -261,9 +272,9 @@ def classify_by_text(text_content: str, page_number: Optional[int] = None) -> Tu
     # observée dans l'évaluation précédente. À remesurer pour confirmer.
     # ============================================================
     if best_score == 0 and len(text_lower) < 100:
-        return "Autres documents techniques", 97
+        return "Autres documents techniques", 97, ["texte trop court pour être classifié"]
 
-    return None, 0
+    return None, 0, []
 
 
 def extract_brand_by_text(text_content: str) -> Optional[str]:
@@ -525,37 +536,39 @@ def extract_brand_for_document(pages: List[Tuple[str, str]], nom_dossier: str = 
     return "INCONNU"
 
 
-def classify_tech_pack_page(image_path: str, text_content: str, page_number: Optional[int] = None) -> Tuple[str, Optional[float]]:
+def classify_tech_pack_page(image_path: str, text_content: str, page_number: Optional[int] = None) -> Tuple[str, Optional[float], List[str]]:
     """
     Classifie UNE page (catégorie uniquement). La marque n'est plus gérée ici :
     elle doit être calculée une seule fois par dossier via extract_brand_for_document(),
     puis passée/assignée à toutes les pages du dossier par l'appelant.
     Voir classify_tech_pack_document() ci-dessous pour l'usage recommandé.
 
-    Retourne (categorie, score_confiance). score_confiance est le score de
-    mots-clés (float) si la catégorie a été trouvée par le texte, ou None si
-    elle a été trouvée par la vision (BakLLaVA ne renvoie pas de score
-    numérique, juste une catégorie) -- utile pour savoir plus tard, dans
-    l'interface, si une classification est "solide" (score élevé) ou
-    "à surveiller" (score faible ou vision).
+    Retourne (categorie, score_confiance, mots_matches). score_confiance est
+    le score de mots-clés (float) si la catégorie a été trouvée par le texte,
+    ou None si elle a été trouvée par la vision (BakLLaVA ne renvoie pas de
+    score numérique, juste une catégorie). mots_matches est la liste des
+    mots-clés qui ont concrètement déclenché la décision (vide si vision) --
+    utile pour expliquer "pourquoi" dans l'interface, sans avoir à montrer le
+    texte brut extrait (souvent peu lisible sur les pages-tableaux).
     """
     if not os.path.exists(image_path):
         print(f"Erreur : L'image n'existe pas : {image_path}")
-        return "Autres documents techniques", None
+        return "Autres documents techniques", None, []
 
-    category, score = classify_by_text(text_content, page_number)
+    category, score, mots = classify_by_text(text_content, page_number)
     if category is None:
         print(f"[INFO] Texte ambigu -> fallback vision pour {os.path.basename(image_path)}")
         category = classify_by_vision(image_path, text_content)
         score = None
+        mots = []
     else:
-        print(f"[INFO] Classifié par texte : {category} (score={score})")
+        print(f"[INFO] Classifié par texte : {category} (score={score}, mots={mots})")
 
     print(f"[IA Décision] Catégorie : '{category}'")
-    return category, score
+    return category, score, mots
 
 
-def classify_tech_pack_document(pages: List[Tuple[str, str]], techpack_id: int = 0, nom_dossier: str = "") -> List[Tuple[str, str, Optional[float]]]:
+def classify_tech_pack_document(pages: List[Tuple[str, str]], techpack_id: int = 0, nom_dossier: str = "") -> List[Tuple[str, str, Optional[float], List[str]]]:
     """
     Point d'entrée recommandé : traite un dossier de Tech Pack complet.
 
@@ -566,12 +579,13 @@ def classify_tech_pack_document(pages: List[Tuple[str, str]], techpack_id: int =
     nom_dossier : nom du dossier, utilisé pour la mémoire apprise et pour identifier
             le document dans l'interface de confirmation manuelle.
 
-    Retourne une liste de (categorie, marque, score_confiance), une entrée par
-    page, dans le même ordre que l'entrée. La marque est identique pour toutes
-    les pages du dossier (calculée une seule fois, voir CHANGEMENT #5). Si la
-    marque est "INCONNU", le document a été automatiquement ajouté à la file
-    de confirmation manuelle (table marque_a_confirmer) -- ce n'est plus une
-    erreur silencieuse, c'est une action en attente et visible.
+    Retourne une liste de (categorie, marque, score_confiance, mots_matches),
+    une entrée par page, dans le même ordre que l'entrée. La marque est
+    identique pour toutes les pages du dossier (calculée une seule fois, voir
+    CHANGEMENT #5). Si la marque est "INCONNU", le document a été
+    automatiquement ajouté à la file de confirmation manuelle (table
+    marque_a_confirmer) -- ce n'est plus une erreur silencieuse, c'est une
+    action en attente et visible.
     """
     # Marque calculée UNE SEULE FOIS pour tout le dossier
     brand = extract_brand_for_document(pages, nom_dossier=nom_dossier)
@@ -581,7 +595,7 @@ def classify_tech_pack_document(pages: List[Tuple[str, str]], techpack_id: int =
 
     resultats = []
     for i, (image_path, text_content) in enumerate(pages, start=1):
-        category, score = classify_tech_pack_page(image_path, text_content, page_number=i)
-        resultats.append((category, brand, score))
+        category, score, mots = classify_tech_pack_page(image_path, text_content, page_number=i)
+        resultats.append((category, brand, score, mots))
 
     return resultats

@@ -6,6 +6,33 @@ import {
 
 const API_BASE = "http://127.0.0.1:8000";
 
+// ============================================================
+// AJOUT : persistance locale (localStorage)
+// ------------------------------------------------------------
+// useState de React vit uniquement en mémoire -- il disparaît dès qu'on
+// change d'onglet (le composant qui le contient est démonté) ou qu'on
+// recharge/ferme la page. localStorage est un espace de stockage fourni
+// par le navigateur qui survit à tout ça. Protégé par try/catch : si le
+// navigateur bloque le stockage (navigation privée...), on continue sans
+// planter, juste sans persistance.
+// ============================================================
+function lireStockageLocal(cle, valeurParDefaut) {
+  try {
+    const brut = localStorage.getItem(cle);
+    return brut ? JSON.parse(brut) : valeurParDefaut;
+  } catch {
+    return valeurParDefaut;
+  }
+}
+
+function ecrireStockageLocal(cle, valeur) {
+  try {
+    localStorage.setItem(cle, JSON.stringify(valeur));
+  } catch {
+    // pas bloquant
+  }
+}
+
 const STATUTS = {
   en_cours: { label: "En cours", classes: "bg-amber-50 text-amber-700 border-amber-200 icon-spin" },
   termine: { label: "Terminé", classes: "bg-emerald-50 text-emerald-700 border-emerald-200" },
@@ -24,10 +51,21 @@ function StatutBadge({ statut }) {
 }
 
 export default function App() {
-  const [ongletActif, setOngletActif] = useState("documents");
+  const [ongletActif, setOngletActif] = useState(() => lireStockageLocal("tpa_onglet_actif", "documents"));
   const [documents, setDocuments] = useState([]);
   const [enAttente, setEnAttente] = useState([]);
   const [chargement, setChargement] = useState(true);
+
+  // AJOUT : état du chat remonté ici (au lieu de vivre dans OngletChat),
+  // initialisé depuis localStorage pour survivre au changement d'onglet
+  // ET à la fermeture/réouverture du site.
+  const [chatMessages, setChatMessages] = useState(() => lireStockageLocal("tpa_chat_messages", []));
+  const [chatSaisie, setChatSaisie] = useState("");
+  const [chatDocumentCible, setChatDocumentCible] = useState(() => lireStockageLocal("tpa_chat_document_cible", ""));
+
+  useEffect(() => { ecrireStockageLocal("tpa_onglet_actif", ongletActif); }, [ongletActif]);
+  useEffect(() => { ecrireStockageLocal("tpa_chat_messages", chatMessages); }, [chatMessages]);
+  useEffect(() => { ecrireStockageLocal("tpa_chat_document_cible", chatDocumentCible); }, [chatDocumentCible]);
 
   const chargerDocuments = async () => {
     try {
@@ -117,7 +155,17 @@ export default function App() {
             chargerDocuments={chargerDocuments} 
           />
         )}
-        {ongletActif === "chat" && <OngletChat documents={documents} />}
+        {ongletActif === "chat" && (
+          <OngletChat
+            documents={documents}
+            messages={chatMessages}
+            setMessages={setChatMessages}
+            saisie={chatSaisie}
+            setSaisie={setChatSaisie}
+            documentCible={chatDocumentCible}
+            setDocumentCible={setChatDocumentCible}
+          />
+        )}
         {ongletActif === "verifier" && (
           <OngletVerification 
             enAttente={enAttente} 
@@ -311,11 +359,25 @@ function OngletDocuments({ documents, chargement, chargerDocuments }) {
                               </div>
                             </div>
 
-                            {/* Aperçu Texte Extrait */}
-                            {p.apercu_texte && (
-                              <div className="text-xs text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100 font-mono leading-relaxed max-h-24 overflow-y-auto">
-                                <span className="font-semibold text-slate-400 block mb-1">TEXTE EXTRAIT:</span>
-                                {p.apercu_texte}
+                            {/* Pourquoi cette catégorie a été choisie -- toujours un message, jamais de case vide */}
+                            {p.mots_cles && p.mots_cles.length > 0 ? (
+                              <div className="text-xs bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                <span className="font-semibold text-slate-400 block mb-1.5">CLASSÉE À CAUSE DE :</span>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {p.mots_cles.map((mot, i) => (
+                                    <span key={i} className="bg-white border border-slate-200 text-slate-700 px-2 py-0.5 rounded-md font-mono">
+                                      {mot}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : p.needs_review ? (
+                              <div className="text-xs bg-amber-50 p-3 rounded-lg border border-amber-100 text-amber-700">
+                                Aucun mot-clé de texte trouvé -- catégorie déterminée par analyse visuelle de l'image (BakLLaVA), pas de justification textuelle disponible.
+                              </div>
+                            ) : (
+                              <div className="text-xs bg-slate-50 p-3 rounded-lg border border-slate-100 text-slate-400 italic">
+                                Mots-clés non disponibles pour cette page (traitée avant l'ajout de cette fonctionnalité). Retraite ce document pour les voir.
                               </div>
                             )}
 
@@ -366,11 +428,8 @@ function OngletDocuments({ documents, chargement, chargerDocuments }) {
 /* ============================================================
    ONGLET 2 : Chat RAG
    ============================================================ */
-function OngletChat({ documents }) {
-  const [messages, setMessages] = useState([]);
-  const [saisie, setSaisie] = useState("");
+function OngletChat({ documents, messages, setMessages, saisie, setSaisie, documentCible, setDocumentCible }) {
   const [enAttente, setEnAttente] = useState(false);
-  const [documentCible, setDocumentCible] = useState("");
   const finRef = useRef(null);
 
   useEffect(() => {
@@ -393,9 +452,18 @@ function OngletChat({ documents }) {
       if (res.ok) {
         const data = await res.json();
         setMessages((prev) => [...prev, { role: "bot", texte: data.reponse, sources: data.sources || [] }]);
+      } else {
+        // Le serveur a répondu, mais avec une erreur -- on affiche le
+        // vrai code plutôt que de faire croire à un problème de connexion.
+        console.error("Le serveur a répondu avec le code", res.status);
+        setMessages((prev) => [...prev, { role: "bot", texte: `Le serveur a renvoyé une erreur (code ${res.status}). Regarde la console (F12) et le terminal du backend pour le détail.` }]);
       }
     } catch (err) {
-      setMessages((prev) => [...prev, { role: "bot", texte: "Erreur de connexion au chatbot." }]);
+      // Ici, la requête n'a même pas atteint le serveur (ou le navigateur a
+      // bloqué la réponse, ex: CORS) -- on affiche le vrai message dans la
+      // console pour pouvoir diagnostiquer précisément, au lieu de deviner.
+      console.error("Erreur fetch /chat :", err);
+      setMessages((prev) => [...prev, { role: "bot", texte: `Impossible de contacter le chatbot (${err.message}). Regarde la console (F12) pour le détail exact.` }]);
     } finally {
       setEnAttente(false);
     }
@@ -408,16 +476,27 @@ function OngletChat({ documents }) {
           <Sparkles className="w-5 h-5 text-indigo-600" />
           <span className="font-semibold text-slate-800 text-sm">Assistant TechPack RAG</span>
         </div>
-        <select
-          value={documentCible}
-          onChange={(e) => setDocumentCible(e.target.value)}
-          className="text-xs bg-white border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        >
-          <option value="">Interroger tous les documents</option>
-          {documents.map((d) => (
-            <option key={d.id} value={d.id}>{d.nom}</option>
-          ))}
-        </select>
+        <div className="flex items-center gap-2">
+          <select
+            value={documentCible}
+            onChange={(e) => setDocumentCible(e.target.value)}
+            className="text-xs bg-white border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <option value="">Interroger tous les documents</option>
+            {documents.map((d) => (
+              <option key={d.id} value={d.id}>{d.nom}</option>
+            ))}
+          </select>
+          {messages.length > 0 && (
+            <button
+              onClick={() => setMessages([])}
+              className="text-xs text-slate-400 hover:text-rose-600 font-medium transition-colors"
+              title="Effacer la conversation enregistrée"
+            >
+              Effacer
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="flex-1 p-6 overflow-y-auto space-y-4">

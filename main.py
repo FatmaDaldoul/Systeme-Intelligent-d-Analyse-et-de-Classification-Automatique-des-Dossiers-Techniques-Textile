@@ -171,7 +171,7 @@ def traiter_document_en_arriere_plan(document_id: int, chemin_pdf: str, nom_doss
         # main après chaque upload.
         # ============================================================
         document_pour_indexation = session.query(DocumentModel).filter_by(id=document_id).first()
-        for numero_page, (categorie, marque, score_confiance) in enumerate(resultats, start=1):
+        for numero_page, (categorie, marque, score_confiance, mots_matches) in enumerate(resultats, start=1):
             chemin_image, texte_page = pages_a_classifier[numero_page - 1]
             nouvelle_page = PageModel(
                 document_id=document_id,
@@ -180,6 +180,7 @@ def traiter_document_en_arriere_plan(document_id: int, chemin_pdf: str, nom_doss
                 raw_text=texte_page,
                 category=categorie,
                 category_confidence=score_confiance,
+                matched_keywords=", ".join(mots_matches) if mots_matches else None,
                 # needs_review : on marque à surveiller toute page où la catégorie
                 # vient de la vision (score=None) plutôt que d'un score de texte
                 # solide -- utile pour repérer d'un coup d'oeil les classifications
@@ -309,9 +310,19 @@ async def upload_techpack(file: UploadFile = File(...), background_tasks: Backgr
 # on va chercher tous les documents en base et on les renvoie.
 @app.get("/documents")
 def lister_documents():
-    """Renvoie la liste de tous les documents, avec leur statut actuel."""
+    """
+    Renvoie la liste de tous les VRAIS documents (uploadés via l'interface),
+    avec leur statut actuel.
+
+    On exclut ici les documents dont le statut est "en_cours_evaluation" --
+    ce sont des lignes créées automatiquement par evaluate_classifier.py
+    pendant les tests de précision (voir obtenir_ou_creer_document() dans
+    ce fichier), qui existent uniquement pour satisfaire une contrainte de
+    clé étrangère en base. Elles n'ont jamais de vraies pages ni de vraie
+    marque, et n'ont rien à faire dans l'interface de l'utilisatrice.
+    """
     session = SessionLocal()
-    documents = session.query(DocumentModel).all()
+    documents = session.query(DocumentModel).filter(DocumentModel.status != "en_cours_evaluation").all()
     resultat = [
         {
             "id": d.id,
@@ -426,9 +437,10 @@ def detail_document(document_id: int):
             "numero": p.page_number,
             "categorie": p.category,
             "confiance": p.category_confidence,
+            "mots_cles": p.matched_keywords.split(", ") if p.matched_keywords else [],
             "needs_review": p.needs_review,
             "image_path": p.image_path,
-            "apercu_texte": (p.raw_text or "").strip(),
+            "apercu_texte": (p.raw_text or "").strip()[:200],
             "a_du_texte": bool((p.raw_text or "").strip()),
             "bom_items": bom_items,
             "measurements": measurements
@@ -454,11 +466,25 @@ def detail_document(document_id: int):
 
 @app.get("/documents-a-verifier")
 def documents_a_verifier():
-    """Renvoie la liste SANS REDONDANCE des documents en attente de confirmation."""
+    """
+    Renvoie la liste SANS REDONDANCE des documents en attente de confirmation.
+
+    On exclut ici, comme pour /documents, les entrées qui viennent de
+    documents créés par evaluate_classifier.py (status "en_cours_evaluation")
+    -- chaque évaluation ajoutait ses propres documents "INCONNU" à cette
+    file, ce qui gonflait artificiellement le compteur "à vérifier" avec
+    des entrées qui n'ont aucun sens à confirmer manuellement dans l'app.
+    """
     session = SessionLocal()
+    en_attente = (
+        session.query(MarqueAConfirmerModel)
+        .join(DocumentModel, MarqueAConfirmerModel.techpack_id == DocumentModel.id)
+        .filter(MarqueAConfirmerModel.statut == "en_attente")
+        .filter(DocumentModel.status != "en_cours_evaluation")
+        .all()
+    )
+
     # Utilisation d'un dictionnaire pour dédoublonner strictement par nom_dossier
-    en_attente = session.query(MarqueAConfirmerModel).filter_by(statut="en_attente").all()
-    
     uniques = {}
     for m in en_attente:
         if m.nom_dossier not in uniques:

@@ -201,9 +201,10 @@ def evaluer():
         resultats = classify_tech_pack_document(pages_a_classifier, techpack_id=techpack_id, nom_dossier=dossier)
 
         # On reconstitue les résultats page par page pour les comparer à la vérité terrain
-        # (le score de confiance, 3e valeur du tuple, n'est pas utilisé ici -- il sert
-        # uniquement à l'affichage dans l'interface web, voir main.py)
-        for ligne, (categorie_predite, marque_predite, _score) in zip(lignes_valides, resultats):
+        # (le score et les mots-clés matchés, 3e et 4e valeurs du tuple, ne sont pas
+        # utilisés ici -- ils servent uniquement à l'affichage dans l'interface web,
+        # voir main.py)
+        for ligne, (categorie_predite, marque_predite, _score, _mots) in zip(lignes_valides, resultats):
             rel_path = ligne["filename"]
             vraie_categorie = ligne["true_category"]
             vraie_marque = ligne["true_brand"]

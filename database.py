@@ -6,7 +6,20 @@ from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 SQLALCHEMY_DATABASE_URL = "mysql+pymysql://myuser:mypassword@localhost:3307/techpacks_db"
 
 # Correction de la variable passée à create_engine
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+# ============================================================
+# AJOUT : pool_pre_ping=True
+# ------------------------------------------------------------
+# POURQUOI : le pipeline attend parfois très longtemps sans toucher à la
+# base (ex: un appel Ollama qui met jusqu'à 600 secondes à timeout). Une
+# connexion MySQL laissée inactive trop longtemps peut être fermée par le
+# serveur ou par Docker sans que SQLAlchemy le sache -- la prochaine requête
+# échoue alors bizarrement (on a vu une erreur de contrainte de clé étrangère
+# qui n'avait pourtant aucune raison logique de se produire). pool_pre_ping
+# fait faire un petit "ping" de vérification avant chaque emprunt de connexion
+# dans le pool, et la remplace automatiquement si elle est morte -- invisible
+# pour le reste du code, mais élimine ce genre d'échec aléatoire.
+# ============================================================
+engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 # NIVEAU 1 : DOCUMENTS
@@ -37,6 +50,12 @@ class PageModel(Base):
     raw_text = Column(Text, nullable=True)
     category = Column(String(100), nullable=True)
     category_confidence = Column(Float, nullable=True)
+    # Mots-clés qui ont concrètement déclenché la catégorie choisie (séparés
+    # par ", "), pour pouvoir expliquer "pourquoi" dans l'interface au lieu
+    # de montrer le texte brut extrait (peu lisible sur les pages-tableaux).
+    # Vide/NULL si la catégorie vient de la vision (BakLLaVA), qui ne
+    # renvoie pas de mots-clés.
+    matched_keywords = Column(Text, nullable=True)
     needs_review = Column(Boolean, default=False)
     document = relationship("DocumentModel", back_populates="pages")
     extractions = relationship("ExtractionModel", back_populates="page", cascade="all, delete-orphan")
