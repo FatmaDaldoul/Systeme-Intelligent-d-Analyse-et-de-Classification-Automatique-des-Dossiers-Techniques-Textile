@@ -182,4 +182,4 @@ Nécessite un fichier `file.csv` (vérité terrain : `filename,true_category,tru
 
 ## Auteur
 
-Projet de fin d'études — développé par Fatma.
+Projet de stage d'été — développé par Fatma.
