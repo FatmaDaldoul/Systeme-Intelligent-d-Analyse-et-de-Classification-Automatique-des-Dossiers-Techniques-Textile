@@ -2,7 +2,7 @@
 
 **Système Intelligent d'Analyse et de Classification Automatique des Dossiers Techniques Textile**
 
-Projet de fin d'études — une application qui lit automatiquement des Tech Packs (dossiers techniques textile, PDF multi-pages), classe chaque page dans une catégorie métier, identifie la marque du client, et permet d'interroger le contenu des documents via un chatbot.
+Projet de stage d'été — une application qui lit automatiquement des Tech Packs (dossiers techniques textile, PDF multi-pages), classe chaque page dans une catégorie métier, identifie la marque du client, et permet d'interroger le contenu des documents via un chatbot.
 
 ---
 
