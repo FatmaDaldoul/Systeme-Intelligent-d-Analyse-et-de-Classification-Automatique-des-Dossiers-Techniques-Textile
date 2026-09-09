@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, Float, Bool
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 # Connexion à votre conteneur Docker MySQL (Port 3307)
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://myuser:mypassword@localhost:3307/techpacks_db"
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://****:****@localhost:3307/techpacks_db"
 
 # Correction de la variable passée à create_engine
 # ============================================================
